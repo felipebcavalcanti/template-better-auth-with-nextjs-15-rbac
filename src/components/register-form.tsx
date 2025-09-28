@@ -8,6 +8,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { signUp } from "@/lib/auth-client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const registerSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -21,15 +23,16 @@ const registerSchema = z.object({
 type RegisterFormValues = z.infer<typeof registerSchema>;
 
 export default function RegisterForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
-    reset,
+    formState: { errors },
   } = useForm<RegisterFormValues>({
     resolver: zodResolver(registerSchema),
   });
 
+  const router = useRouter();
   const onSubmit = async (data: RegisterFormValues) => {
     try {
       await signUp.email(
@@ -39,16 +42,21 @@ export default function RegisterForm() {
           password: data.password,
         },
         {
-          onRequest: () => {},
-          onResponse: () => {},
+          onRequest: () => {
+            setIsSubmitting(true);
+          },
+          onResponse: () => {
+            setIsSubmitting(false);
+          },
           onError: (ctx) => {
             toast.error(ctx.error.message);
           },
-          onSuccess: () => {},
+          onSuccess: () => {
+            toast.success("Registration successful!");
+            router.push("/login");
+          },
         },
       );
-      toast.success("Registration successful!");
-      reset();
       console.log(data);
     } catch (error) {
       toast.error("Something went wrong!");
