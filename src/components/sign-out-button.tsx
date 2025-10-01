@@ -5,8 +5,10 @@ import { Button } from "./ui/button";
 import { signOut } from "@/lib/auth-client";
 import { toast } from "sonner";
 import { useState } from "react";
+import { useSessionStorage } from "@/hooks/use-session-storage";
 
 export default function SignOutButton() {
+  const { clearStorage } = useSessionStorage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
@@ -23,6 +25,8 @@ export default function SignOutButton() {
           toast.error(ctx.error.message);
         },
         onSuccess: () => {
+          // Limpa o localStorage quando fizer logout
+          clearStorage();
           toast.success("Signed out successfully");
           router.push("/login");
         },

@@ -10,7 +10,6 @@ import { signIn } from "@/lib/auth-client";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { set } from "zod/v3";
 
 const loginSchema = z.object({
   email: z.email("Invalid email format").min(1, "Email is required"),
