@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  serverExternalPackages: ["@node-rs/argon2"],
+  serverExternalPackages: ["bcrypt"],
+  images: {
+    domains: ["c.animaapp.com"],
+  },
 };
 
 export default nextConfig;

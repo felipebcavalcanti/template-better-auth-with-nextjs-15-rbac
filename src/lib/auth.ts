@@ -1,8 +1,8 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-import { jwt } from "better-auth/plugins";
 import prisma from "./prisma";
-import { hashPassword, verifyPassword } from "@/lib/argontwo";
+import { hashPassword,verifyPassword } from "./bcrypt";
+
 
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
@@ -18,15 +18,12 @@ export const auth = betterAuth({
     },
   },
   session: {
-    cookieCache: {
-      enabled: true,
-      maxAge: 5 * 60, // 5 minutos de cache no cookie
+    strategy: "jwt", // Usa apenas JWT, sem armazenar sessões no banco
+    expiresIn: 60 * 60 * 24 * 7, // 7 dias
+    updateAge: 60 * 60 * 24, // Atualiza o token a cada 24h
+    jwtConfig: {
+      algorithm: "HS256",
     },
   },
-  plugins: [
-    jwt({
-      // O JWT será gerado e pode ser acessado via header ou endpoint
-      // O cookie de sessão continuará funcionando normalmente
-    }),
-  ],
+  
 });

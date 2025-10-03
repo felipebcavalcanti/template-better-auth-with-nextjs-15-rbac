@@ -27,7 +27,7 @@ export default function SignOutButton() {
         onSuccess: () => {
           // Limpa o localStorage quando fizer logout
           clearStorage();
-          toast.success("Signed out successfully");
+          toast.success("Logout com sucesso");
           router.push("/login");
         },
       },

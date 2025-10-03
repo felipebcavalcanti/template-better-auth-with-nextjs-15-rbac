@@ -52,14 +52,14 @@ export default function RegisterForm() {
             toast.error(ctx.error.message);
           },
           onSuccess: () => {
-            toast.success("Registration successful!");
+            toast.success("Registro com sucesso!");
             router.push("/login");
           },
         },
       );
       console.log(data);
     } catch (error) {
-      toast.error("Something went wrong!");
+      toast.error("Algo deu errado!");
     }
   };
 
@@ -93,7 +93,7 @@ export default function RegisterForm() {
       </div>
 
       <Button type="submit" className="w-full" disabled={isSubmitting}>
-        {isSubmitting ? "Registering..." : "Register"}
+        {isSubmitting ? "Registrando..." : "Registrar"}
       </Button>
     </form>
   );

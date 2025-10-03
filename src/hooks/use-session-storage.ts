@@ -52,7 +52,7 @@ export function useSessionStorage() {
       // Limpa localStorage quando não há sessão
       localStorage.removeItem(STORAGE_KEY);
       setUserData(null);
-      console.log("🗑️ Dados removidos do localStorage");
+      console.log("Dados removidos do localStorage");
     }
   }, [session, isPending]);
 

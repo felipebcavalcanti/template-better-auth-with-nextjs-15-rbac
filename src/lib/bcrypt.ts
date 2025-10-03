@@ -1,21 +1,16 @@
 //essa lib aqui é pra se eu QUISER, hashear minha senha.
 
-import { hash, verify, type Options } from "@node-rs/argon2";
+import bcrypt from "bcrypt";
 
-const opts: Options = {
-  memoryCost: 19456,
-  timeCost: 2,
-  parallelism: 1,
-  outputLen: 32,
-};
+const SALT_ROUNDS = 10; // Quanto maior, mais seguro, mas mais lento (10 é bom)
 
 export async function hashPassword(password: string) {
-  return await hash(password, opts);
+  return await bcrypt.hash(password, SALT_ROUNDS);
 }
 
 export async function verifyPassword(data: { hash: string; password: string }) {
   const { hash, password } = data;
-  const result = await verify(hash, password, opts);
+  const result = await bcrypt.compare(password, hash);
 
   return result;
 }
