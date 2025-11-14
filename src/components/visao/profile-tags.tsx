@@ -7,7 +7,7 @@ interface ProfileTagsProps {
 export default function ProfileTags({ tags }: ProfileTagsProps) {
   return (
     <div className="mb-6">
-      <h3 className="font-medium text-[#f6f8fc] text-base tracking-[0] leading-5 mb-3">
+      <h3 className="montserrat-semibold-18 text-[#f6f8fc] mb-3">
         Perfil
       </h3>
       <div className="flex flex-wrap gap-2">

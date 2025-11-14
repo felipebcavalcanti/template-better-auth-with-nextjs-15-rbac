@@ -3,19 +3,17 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function SmartClassification() {
   return (
-    <div className="w-full lg:w-[965px] h-auto lg:h-[320px] border border-solid border-[#ffffff1a] rounded-3xl p-4 lg:p-6" style={{
-      background: 'linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(153,153,153,0.05) 100%)'
-    }}>
+    <div className="w-full lg:w-[965px] h-auto lg:h-[320px]  rounded-3xl p-4 lg:p-6" >
       <h2 className="font-bold text-white text-lg lg:text-xl tracking-[0] leading-5 lg:leading-6 mb-4 lg:mb-6">
         Classificação inteligente
       </h2>
 
       <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 ">
         {/* Premium Card */}
-        <Card className="w-full lg:w-[332px] h-auto lg:h-[216px] bg-[#1a2332] border-0 rounded-2xl p-6">
-          <CardContent className="p-0 flex flex-col justify-between h-full">
+        <Card className="w-full lg:w-[332px] h-auto lg:h-[216px] bg-[#1a2332] border-0 rounded-2xl p-2">
+          <CardContent className="p-1 flex flex-col justify-between h-full">
             <div className="flex flex-col items-center">
-              <div className="relative w-[156px] h-[110px] flex items-center justify-center mb-2">
+              <div className="relative w-[156px] h-[110px] flex items-center justify-center mb-1 ">
                 {/* SVG para os arcos */}
                 <svg className="absolute w-[156px] h-[110px]" viewBox="0 0 156 110" fill="none">
                   {/* Arco cinza direito (parte superior direita) */}
@@ -46,8 +44,8 @@ export default function SmartClassification() {
               </div>
             </div>
 
-            <div className="flex justify-between items-end gap-3 mt-4">
-              <div className="flex-1">
+            <div className="flex justify-between items-center gap-3 mt-4">
+              <div className="flex-1 ml-4">
                 <div className="font-semibold text-[#6b7280] text-[10px] tracking-[0] leading-3 mb-1">
                   Life time value
                 </div>
@@ -55,14 +53,16 @@ export default function SmartClassification() {
                   R$ 24.580,00
                 </div>
               </div>
+                {/* poderia usar o separator aqui do shadcn/ui */}
+              <div className="w-px h-[40px] mr-4 bg-[#374151]" />
 
-              <div className="w-px h-[40px] bg-[#374151]" />
-
-              <div className="flex-1 text-right">
-                <div className="font-semibold text-[#6b7280] text-[10px] tracking-[0] leading-3 mb-1">
+              <div className="flex-1 text-left">
+                <div className="font-semibold text-[#6b7280] text-[10px] tracking-[0] leading-3 mb-1 ">
                   Probabilidade de churn
                 </div>
-                <div className="font-bold text-[#22c55e] text-base tracking-tight leading-5" style={{ textShadow: '0px 0px 8px rgba(34, 197, 94, 0.4)' }}>
+                <div 
+                    className="flex flex-start font-bold text-[#22c55e] text-base tracking-tight leading-5" 
+                    style={{ textShadow: '0px 0px 8px rgba(34, 197, 94, 0.4)' }}>
                   11%
                 </div>
               </div>

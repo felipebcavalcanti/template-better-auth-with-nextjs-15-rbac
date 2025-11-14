@@ -11,19 +11,19 @@ interface AppActionsProps {
 export default function AppActions({ actions }: AppActionsProps) {
   return (
     <div>
-      <h3 className="font-medium text-[#f6f8fc] text-base tracking-[0] leading-5 mb-3">
+      <h3 className="montserrat-semibold-18 text-[#f6f8fc] mb-3">
         Ações no app
       </h3>
       <div className="space-y-3">
         {actions.map((action, index) => (
           <div key={index} className="space-y-1">
-            <div className="font-normal text-[#eff6ff80] text-[10px] tracking-[0] leading-3">
+            <div className="montserrat-regular-14 text-[#eff6ff80]">
               {action.timeAgo}
             </div>
-            <div className="font-normal text-blue-50 text-sm tracking-[0] leading-5">
+            <div className="montserrat-regular-14 text-blue-50">
               {action.action}
             </div>
-            <div className="font-semibold text-[#eff6ff80] text-[10px] tracking-[0] leading-3">
+            <div className="montserrat-regular-14 text-[#eff6ff80]">
               {action.details}
             </div>
           </div>

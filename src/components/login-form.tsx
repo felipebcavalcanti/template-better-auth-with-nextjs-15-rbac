@@ -62,28 +62,40 @@ export default function LoginForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-full max-w-md space-y-4"
+      className="w-full space-y-5"
     >
       <div className="space-y-2">
-        <Label htmlFor="email">Email</Label>
-        <Input type="email" id="email" {...register("email")} />
+        <Label htmlFor="email" className="montserrat-regular-14 text-slate-200">
+          Email
+        </Label>
+        <Input
+          type="email"
+          id="email"
+          {...register("email")}
+          className="montserrat-regular-14 bg-slate-800/50 border-slate-700 text-slate-100 placeholder:text-slate-500 focus:border-blue-500 focus:ring-blue-500/20"
+          placeholder="seu@email.com"
+        />
         {errors.email && (
-          <p className="text-sm text-red-500">{errors.email.message}</p>
+          <p className="montserrat-regular-14 text-red-400">{errors.email.message}</p>
         )}
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="password">Password</Label>
+        <Label htmlFor="password" className="montserrat-regular-14 text-slate-200">
+          Senha
+        </Label>
         <div className="relative">
           <Input
             type={showPassword ? "text" : "password"}
             id="password"
             {...register("password")}
+            className="montserrat-regular-14 bg-slate-800/50 border-slate-700 text-slate-100 placeholder:text-slate-500 focus:border-blue-500 focus:ring-blue-500/20 pr-10"
+            placeholder="••••••••"
           />
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 transition-colors"
           >
             {showPassword ? (
               <EyeOff className="h-5 w-5" />
@@ -93,12 +105,16 @@ export default function LoginForm() {
           </button>
         </div>
         {errors.password && (
-          <p className="text-sm text-red-500">{errors.password.message}</p>
+          <p className="montserrat-regular-14 text-red-400">{errors.password.message}</p>
         )}
       </div>
 
-      <Button type="submit" className="w-full" disabled={isSubmitting}>
-        {isSubmitting ? "Logging..." : "Login"}
+      <Button
+        type="submit"
+        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white montserrat-semibold-18 py-2.5 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 transition-all duration-300"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? "Entrando..." : "Entrar"}
       </Button>
     </form>
   );

@@ -13,7 +13,7 @@ interface StoredUserData {
 const STORAGE_KEY = "better-auth-user";
 
 /**
- Better-auth sincroniza com o useSession os dados no localStorage.
+ O Better-auth sincroniza com o useSession os dados no localStorage.
  */
 export function useSessionStorage() {
   const { data: session, isPending, error } = useSession();

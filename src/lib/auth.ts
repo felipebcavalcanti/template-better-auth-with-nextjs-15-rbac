@@ -2,6 +2,7 @@ import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import prisma from "./prisma";
 import { hashPassword,verifyPassword } from "./bcrypt";
+import { nextCookies } from "better-auth/next-js";
 
 
 export const auth = betterAuth({
@@ -12,7 +13,7 @@ export const auth = betterAuth({
     enabled: true,
     autoSignIn: false,
     password: {
-      //aqui eu poderia passar as opcoes do better-auth
+      //aqui eu poderia passar as opções do better-auth
       hash: hashPassword,
       verify: verifyPassword,
     },
@@ -25,5 +26,6 @@ export const auth = betterAuth({
       algorithm: "HS256",
     },
   },
+  plugins: [nextCookies()],
   
 });

@@ -120,3 +120,55 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Montserrat Font Utilities */
+@layer utilities {
+  .font-montserrat {
+    font-family: var(--font-montserrat);
+  }
+
+  .montserrat-bold-20 {
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  .montserrat-bold-24 {
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  .montserrat-semibold-18 {
+    font-family: var(--font-montserrat);
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .montserrat-regular-14 {
+    font-family: var(--font-montserrat);
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  .debugger {
+    @apply border border-amber-500;
+  }
+}
+
+/* Fade-in Animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+  animation-delay: var(--animation-delay, 0ms);
+}

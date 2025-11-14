@@ -66,33 +66,61 @@ export default function RegisterForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-full max-w-md space-y-4"
+      className="w-full space-y-5"
     >
       <div className="space-y-2">
-        <Label htmlFor="name">Name</Label>
-        <Input type="text" id="name" {...register("name")} />
+        <Label htmlFor="name" className="montserrat-regular-14 text-slate-200">
+          Nome
+        </Label>
+        <Input
+          type="text"
+          id="name"
+          {...register("name")}
+          className="montserrat-regular-14 bg-slate-800/50 border-slate-700 text-slate-100 placeholder:text-slate-500 focus:border-blue-500 focus:ring-blue-500/20"
+          placeholder="Seu nome"
+        />
         {errors.name && (
-          <p className="text-sm text-red-500">{errors.name.message}</p>
+          <p className="montserrat-regular-14 text-red-400">{errors.name.message}</p>
         )}
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="email">Email</Label>
-        <Input type="email" id="email" {...register("email")} />
+        <Label htmlFor="email" className="montserrat-regular-14 text-slate-200">
+          Email
+        </Label>
+        <Input
+          type="email"
+          id="email"
+          {...register("email")}
+          className="montserrat-regular-14 bg-slate-800/50 border-slate-700 text-slate-100 placeholder:text-slate-500 focus:border-blue-500 focus:ring-blue-500/20"
+          placeholder="seu@email.com"
+        />
         {errors.email && (
-          <p className="text-sm text-red-500">{errors.email.message}</p>
+          <p className="montserrat-regular-14 text-red-400">{errors.email.message}</p>
         )}
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="password">Password</Label>
-        <Input type="password" id="password" {...register("password")} />
+        <Label htmlFor="password" className="montserrat-regular-14 text-slate-200">
+          Senha
+        </Label>
+        <Input
+          type="password"
+          id="password"
+          {...register("password")}
+          className="montserrat-regular-14 bg-slate-800/50 border-slate-700 text-slate-100 placeholder:text-slate-500 focus:border-blue-500 focus:ring-blue-500/20"
+          placeholder="••••••••"
+        />
         {errors.password && (
-          <p className="text-sm text-red-500">{errors.password.message}</p>
+          <p className="montserrat-regular-14 text-red-400">{errors.password.message}</p>
         )}
       </div>
 
-      <Button type="submit" className="w-full" disabled={isSubmitting}>
+      <Button
+        type="submit"
+        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white montserrat-semibold-18 py-2.5 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 transition-all duration-300"
+        disabled={isSubmitting}
+      >
         {isSubmitting ? "Registrando..." : "Registrar"}
       </Button>
     </form>

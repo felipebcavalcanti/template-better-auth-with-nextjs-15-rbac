@@ -1,6 +1,6 @@
 /*
  *Criado para evitar multiplas instancias do Prisma Client no ambiente de desenvolvimento, ou seja,
- * quando o hot reload do Next.js estiver ativo, ele criar uma conexao so, uma instancia e nao criar varias a cada requisicao.
+ * quando o hot reload do Next.js estiver ativo, ele criar uma unica conexao, e nao criar varias, a cada requisicao.
  */
 
 import { PrismaClient } from "@/generated/prisma";

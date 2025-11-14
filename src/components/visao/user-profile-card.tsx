@@ -37,9 +37,9 @@ export default function UserProfileCard({
 }: UserProfileCardProps) {
   return (
     <div className="w-full lg:w-[520px] bg-[#ffffff05] rounded-3xl border border-solid border-[#ffffff1a] p-4 lg:p-6 relative h-fit">
-      {/* User Name */}
+      {/* Nome do usuário */}
       <div className="text-center mb-5">
-        <h2 className="font-bold text-[#f6f8fc] text-xl tracking-[0] leading-6">
+        <h2 className="montserrat-bold-20 text-[#f6f8fc]">
           {userName}
         </h2>
       </div>
@@ -51,7 +51,7 @@ export default function UserProfileCard({
           className="flex flex-col items-center gap-2 p-2 hover:bg-[#ffffff0d] rounded-xl"
         >
           <Image className="w-6 h-6" alt="Phone" src="https://c.animaapp.com/mfyg6szb9gzN4V/img/icon-4.svg" width={24} height={24} />
-          <span className="font-normal text-blue-50 text-xs tracking-[0] leading-4 text-center whitespace-nowrap">
+          <span className="montserrat-regular-14 text-blue-50 text-center whitespace-nowrap">
             Telefonar
           </span>
         </Button>
@@ -60,7 +60,7 @@ export default function UserProfileCard({
           className="flex flex-col items-center gap-2 p-2 hover:bg-[#ffffff0d] rounded-xl"
         >
           <Image className="w-6 h-6" alt="Email" src="https://c.animaapp.com/mfyg6szb9gzN4V/img/icon-3.svg" width={24} height={24} />
-          <span className="font-normal text-blue-50 text-xs tracking-[0] leading-4 text-center whitespace-nowrap">
+          <span className="montserrat-regular-14 text-blue-50 text-center whitespace-nowrap">
             Enviar e-mail
           </span>
         </Button>
@@ -69,25 +69,29 @@ export default function UserProfileCard({
           className="flex flex-col items-center gap-2 p-2 hover:bg-[#ffffff0d] rounded-xl"
         >
           <Image className="w-6 h-6" alt="More" src="https://c.animaapp.com/mfyg6szb9gzN4V/img/icon-8.svg" width={24} height={24} />
-          <span className="font-normal text-blue-50 text-xs tracking-[0] leading-4 text-center whitespace-nowrap">
+          <span className="montserrat-regular-14 text-blue-50 text-center whitespace-nowrap">
             Ver mais
           </span>
         </Button>
       </div>
 
-      <ProductsList products={products} />
+        <ProductsList 
+          products={products} />
 
-      <Separator className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-6" />
+      <div className="h-px bg-gray-800 mb-6 -mx-4 lg:-mx-6" />
 
-      <ProfileTags tags={profileTags} />
+        <ProfileTags 
+          tags={profileTags} />
 
-      <Separator className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-6" />
+      <div className="h-px bg-gray-800 mb-6 -mx-4 lg:-mx-6" />
 
-      <CapturedPhrases phrases={capturedPhrases} />
+        <CapturedPhrases 
+          phrases={capturedPhrases} />
 
-      <Separator className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-6" />
+      <div className="h-px bg-gray-800 mb-6 -mx-4 lg:-mx-6" />
 
-      <AppActions actions={appActions} />
+        <AppActions 
+          actions={appActions} />
     </div>
   );
 }
